@@ -3,7 +3,7 @@ import { use } from 'react'
 import Item from './item'
 
 const getSales = async () => {
-  const html = await fetch('https://my.freshpoint.cz/device/product-list/67')
+  const html = await fetch('https://my.freshpoint.cz/device/product-list/89')
   const page = await html.text()
   const $ = load(page)
   let items = []
@@ -14,20 +14,11 @@ const getSales = async () => {
       .children('.position-relative')
       .first()
       .children()
-      .first()
-      .next()
+      .last()
       .children()
       .attr().src
-    const sale = $(root)
-      .children('.position-relative')
-      .first()
-      .children()
-      .first()
-      .next()
-      .children()
-      .next()
-      .children()
-      .text()
+
+    const sale = $(e).children().text()
 
     const oldPrice = $(root)
       .children('.pl-md-3')
@@ -70,15 +61,12 @@ const Store = () => {
   const items = use(getSales())
 
   return (
-    <div>
-      <h3>Store</h3>
-      <div className='row'>
-        {items.map((e) => (
-          <div className='col-3'>
-            <Item key={e.name} item={e} />
-          </div>
-        ))}
-      </div>
+    <div className='row pt-5  d-flex justify-content-center'>
+      {items.map((e, i) => (
+        <div className='col-3 mb-4 '>
+          <Item key={i} item={e} />
+        </div>
+      ))}
     </div>
   )
 }
