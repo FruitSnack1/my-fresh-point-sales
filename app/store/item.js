@@ -3,7 +3,7 @@ const Item = ({ item }) => {
     <>
       <div className='card border-0 shadow rounded-4 p-2'>
         <div className='card-body'>
-          <h5 className='card-title fw-bold lh-1' style={{ height: '2em' }}>
+          <h5 className='card-title fw-bold' style={{ height: '2em' }}>
             {item.name}
           </h5>
           <div
