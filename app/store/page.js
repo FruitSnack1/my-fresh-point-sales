@@ -61,12 +61,14 @@ const Store = () => {
   const items = use(getSales())
 
   return (
-    <div className='row pt-5  d-flex justify-content-center'>
-      {items.map((e, i) => (
-        <div className='col-3 mb-4 '>
-          <Item key={i} item={e} />
-        </div>
-      ))}
+    <div className='main d-flex justify-content-center align-items-center'>
+      <div className='row d-flex justify-content-center'>
+        {items.map((e, i) => (
+          <div className='col-3 mb-4 '>
+            <Item key={i} item={e} />
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
